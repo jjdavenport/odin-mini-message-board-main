@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <ul>
+      <% messages.forEach((message, index) => { %>
+      <li key="<%= index %>">
+        <span><%= message.text %></span>
+        <span><%= message.user %></span>
+        <span><%= message.added %></span>
+      </li>
+      <% }); %>
+    </ul>
+  </body>
+</html>
