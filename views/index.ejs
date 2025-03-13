@@ -1,7 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Odin mini message board</title>
+    <link rel="icon" type="image/svg+xml" href="/odin-icon.svg" />
+    <link rel="stylesheet" href="/css/output.css" />
+  </head>
   <body>
-    <ul>
+    <%- include('header') %>
+    <ul class="bg-red-600">
       <% messages.forEach((message, index) => { %>
       <li key="<%= index %>">
         <span><%= message.text %></span>
