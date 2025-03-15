@@ -11,18 +11,24 @@
     <div class="h-full min-h-screen bg-cyan-50 items-center flex flex-col">
       <div class="flex flex-col gap-4 w-full max-w-screen-sm p-4">
         <%- include('header') %>
-        <ul class="flex flex-col gap-4">
-          <% messages.forEach((message, index) => { %>
-          <li class="bg-white p-4" key="<%= index %>">
-            <div class="flex gap-4">
-              <span><%= message.user %></span>
-              <span><%= message.added.toLocaleString(2) %></span>
-            </div>
-            <span><%= message.text %></span>
-          </li>
-          <% }); %>
-        </ul>
-        <a href="/new" class="bg-blue-600 text-white p-2">New message</a>
+        <form
+          class="flex bg-white flex-col gap-4 p-4"
+          method="POST"
+          action="/new"
+        >
+          <input
+            name="messageUser"
+            class="border p-2"
+            type="text"
+            placeholder="Name"
+          />
+          <textarea
+            name="message"
+            class="border p-2"
+            placeholder="Message"
+          ></textarea>
+          <button class="bg-blue-700 text-white p-2">Post</button>
+        </form>
       </div>
     </div>
   </body>
