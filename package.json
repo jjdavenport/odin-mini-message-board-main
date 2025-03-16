@@ -5,10 +5,15 @@
     "express": "^4.21.2"
   },
   "scripts": {
+    "start": "node app.js",
     "build:css": "npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch",
     "dev": "node --watch app.js"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.17"
+  },
+  "engines": {
+    "node": ">=22.14.0",
+    "npm": "~11.2.0"
   }
 }
