@@ -5,6 +5,9 @@ const path = require("path");
 const HOSTNAME = process.env.HOSTNAME || "localhost";
 const PORT = process.env.PORT || 3000;
 const indexRouter = require("./routes/index-router.js");
+const initDB = require("./database/populate-database.js");
+
+initDB();
 
 app.use(express.static(path.join(__dirname, "public")));
 

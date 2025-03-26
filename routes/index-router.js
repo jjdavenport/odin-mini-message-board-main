@@ -1,13 +1,15 @@
 const express = require("express");
 const router = express.Router();
+const { getAllMessages, insertMessage } = require("../database/queries");
 
-const messages = [
-  { text: "Hi there!", user: "Amando", added: new Date() },
-  { text: "Hello World!", user: "Charles", added: new Date() },
-];
-
-router.get("/", (req, res) => {
-  res.render("index", { messages: messages });
+router.get("/", async (req, res) => {
+  try {
+    const messages = await getAllMessages();
+    res.render("index", { messages });
+  } catch (error) {
+    console.error("Error fetching messages:", error);
+    res.status(500).send("Error fetching messages");
+  }
 });
 
 router.get("/new", (req, res) => {
@@ -15,8 +17,8 @@ router.get("/new", (req, res) => {
 });
 
 router.post("/new", (req, res) => {
-  const { message, messageUser } = req.body;
-  messages.push({ text: message, user: messageUser, added: new Date() });
+  const { message, user } = req.body;
+  insertMessage(message, user);
   res.redirect("/");
 });
 
