@@ -1,10 +1,5 @@
 require("dotenv").config();
 const { Client } = require("pg");
-const HOSTNAME = process.env.DATABASE_URL;
-const USER = process.env.PGUSER;
-const DATABASE = process.env.PGDATABASE;
-const PASSWORD = process.env.POSTGRES_PASSWORD;
-const PORT = process.env.PGPORT;
 
 const messages = [
   { text: "Hi there!", user: "Amando", added: new Date() },
@@ -32,7 +27,10 @@ VALUES ('${msg.text}', '${msg.user}', '${msg.added.toISOString()}');
 async function initDB() {
   console.log("seeding...");
   const client = new Client({
-    connectionString: `postgresql://${USER}:${PASSWORD}@${HOSTNAME}:${PORT}/${DATABASE}`,
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false,
+    },
   });
   await client.connect();
   await client.query(SQL);
