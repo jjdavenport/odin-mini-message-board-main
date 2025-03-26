@@ -1,10 +1,10 @@
 require("dotenv").config();
 const { Client } = require("pg");
-const HOSTNAME = process.env.DB_HOSTNAME;
-const USER = process.env.USER;
-const DATABASE = process.env.DATABASE;
-const PASSWORD = process.env.PASSWORD;
-const PORT = process.env.DB_PORT;
+const HOSTNAME = process.env.DATABASE_URL;
+const USER = process.env.PGUSER;
+const DATABASE = process.env.PGDATABASE;
+const PASSWORD = process.env.POSTGRES_PASSWORD;
+const PORT = process.env.PGPORT;
 
 const messages = [
   { text: "Hi there!", user: "Amando", added: new Date() },
