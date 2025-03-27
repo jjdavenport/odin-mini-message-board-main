@@ -9,7 +9,7 @@ const messages = [
 const SQL = `
 CREATE TABLE IF NOT EXISTS messages (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  message VARCHAR(255) NOT NULL,
+ text VARCHAR(255) NOT NULL,
   "user" VARCHAR(255) NOT NULL,
   added TIMESTAMP NOT NULL
 );
@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS messages (
 ${messages
   .map(
     (msg) => `
-INSERT INTO messages (message, "user", added) 
+INSERT INTO messages (text, "user", added) 
 VALUES ('${msg.text}', '${msg.user}', '${msg.added.toISOString()}');
 `
   )
