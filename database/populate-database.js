@@ -24,7 +24,7 @@ ${messages
     (msg) => `
 INSERT INTO messages (text, "user", added) 
 VALUES ('${msg.text}', '${msg.user}', '${msg.added.toISOString()}');
-`
+`,
   )
   .join("\n")}
 `;
@@ -40,4 +40,4 @@ async function initDB() {
   console.log("done");
 }
 
-module.exports = initDB;
+initDB();

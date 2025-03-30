@@ -6,9 +6,10 @@
     "pg": "^8.14.1"
   },
   "scripts": {
+    "db": "node database/populate-database.js",
     "start": "node app.js",
-    "build:css": "npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch",
-    "dev": "node --watch app.js"
+    "dev": "node --watch app.js",
+    "build:css": "npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch"
   },
   "devDependencies": {
     "prettier": "^3.5.3",
