@@ -6,12 +6,12 @@
     "pg": "^8.14.1"
   },
   "scripts": {
-    "db": "node database/populate-database.js",
-    "start": "node app.js",
-    "dev": "node --watch app.js",
+    "start": "concurrently \"node ./database/populate-database.js\" \"node app.js\"",
+    "dev": "concurrently \"node ./database/populate-database.js\" \"node app.js\"",
     "build:css": "npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch"
   },
   "devDependencies": {
+    "concurrently": "^9.1.2",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^3.4.17"
