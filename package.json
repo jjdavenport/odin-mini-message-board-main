@@ -11,6 +11,8 @@
     "dev": "node --watch app.js"
   },
   "devDependencies": {
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^3.4.17"
   },
   "engines": {

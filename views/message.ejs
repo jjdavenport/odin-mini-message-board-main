@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Odin mini message board</title>
+    <link rel="icon" type="image/svg+xml" href="/odin-icon.svg" />
+    <link rel="stylesheet" href="/css/output.css" />
+  </head>
+  <body>
+    <div
+      class="flex h-full min-h-screen flex-col items-center bg-blue-50 font-custom dark:bg-slate-900"
+    >
+      <div class="flex w-full max-w-screen-sm flex-col gap-4 p-4">
+        <%- include('header') %>
+        <li
+          class="flex flex-col gap-2 rounded-md bg-white p-4 dark:bg-blue-950"
+        >
+          <div class="flex gap-4">
+            <span class="dark:text-white"><%= message.user %></span>
+            <span class="text-gray-500 dark:text-slate-400">
+              <%= message.added.toLocaleString(2) %></span
+            >
+          </div>
+          <span class="text-gray-500 dark:text-slate-400"
+            ><%= message.text %></span
+          >
+        </li>
+        <a
+          href="/"
+          class="flex justify-center rounded-md bg-blue-600 py-3 uppercase text-white transition-colors duration-300 ease-in-out hover:bg-opacity-60"
+          >Return</a
+        >
+      </div>
+    </div>
+  </body>
+</html>

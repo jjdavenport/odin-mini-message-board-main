@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { getAllMessages, insertMessage } = require("../database/queries");
+const {
+  getAllMessages,
+  insertMessage,
+  getMessageById,
+} = require("../database/queries");
 
 router.get("/", async (req, res) => {
   try {
@@ -14,6 +18,17 @@ router.get("/", async (req, res) => {
 
 router.get("/new", (req, res) => {
   res.render("form");
+});
+
+router.get("/messages/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const message = await getMessageById(id);
+    res.render("message", { message });
+  } catch (error) {
+    console.log("error", error);
+    res.status(500).send("error");
+  }
 });
 
 router.post("/new", (req, res) => {
