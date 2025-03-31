@@ -7,8 +7,9 @@
   },
   "scripts": {
     "start": "concurrently \"node ./database/populate-database.js\" \"node app.js\"",
-    "dev": "concurrently \"node ./database/populate-database.js\" \"node app.js\"",
-    "build:css": "npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch"
+    "dev": "concurrently \"node app.js\" \"npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch\"",
+    "build:css": "npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch",
+    "db": "concurrently \"node ./database/populate-database.js\""
   },
   "devDependencies": {
     "concurrently": "^9.1.2",

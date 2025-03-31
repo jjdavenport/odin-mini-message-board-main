@@ -4,6 +4,7 @@ const {
   getAllMessages,
   insertMessage,
   getMessageById,
+  searchMessages,
 } = require("../database/queries");
 
 router.get("/", async (req, res) => {
@@ -18,6 +19,17 @@ router.get("/", async (req, res) => {
 
 router.get("/new", (req, res) => {
   res.render("form");
+});
+
+router.get("/search", async (req, res) => {
+  try {
+    const { text, user } = req.query;
+    const search = searchMessages(text, user);
+    res.render("search", { search });
+  } catch {
+    console.log("error", error);
+    res.status(500).send("error");
+  }
 });
 
 router.get("/messages/:id", async (req, res) => {

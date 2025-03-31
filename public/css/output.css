@@ -556,6 +556,10 @@ video {
   display: none;
 }
 
+.ml-2{
+  margin-left: 0.5rem;
+}
+
 .flex{
   display: flex;
 }
@@ -590,6 +594,10 @@ video {
 
 .justify-center{
   justify-content: center;
+}
+
+.justify-between{
+  justify-content: space-between;
 }
 
 .gap-2{
@@ -631,9 +639,18 @@ video {
   padding: 1rem;
 }
 
+.px-2{
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 .py-3{
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+}
+
+.pl-2{
+  padding-left: 0.5rem;
 }
 
 .font-custom{
@@ -661,6 +678,11 @@ video {
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.outline-none{
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 .transition-colors{
