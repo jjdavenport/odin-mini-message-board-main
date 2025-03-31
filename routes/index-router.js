@@ -23,12 +23,13 @@ router.get("/new", (req, res) => {
 
 router.get("/search", async (req, res) => {
   try {
-    const { text, user } = req.query;
-    const search = searchMessages(text, user);
+    const { input } = req.query;
+    if (!input) return res.redirect("/");
+    const search = await searchMessages(input);
     res.render("search", { search });
-  } catch {
-    console.log("error", error);
-    res.status(500).send("error");
+  } catch (error) {
+    console.error("Search error:", error);
+    res.status(500).send("Search failed");
   }
 });
 
